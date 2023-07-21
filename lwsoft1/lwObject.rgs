@@ -1,0 +1,26 @@
+HKCR
+{
+	lwsoft1.obj.1 = s 'lwObject class'
+	{
+		CLSID = s '{fc598ba8-6f6a-464e-b1db-06d60265f708}'
+	}
+	lwsoft1.obj = s 'lwObject class'
+	{		
+		CurVer = s 'lwsoft1.obj.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {fc598ba8-6f6a-464e-b1db-06d60265f708} = s 'lwObject class'
+		{
+			ProgID = s 'lwsoft1.obj.1'
+			VersionIndependentProgID = s 'lwsoft1.obj'
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			TypeLib = s '{25b4ca0e-260f-4fe8-bf12-b09b4952b5e2}'
+			Version = s '1.0'
+		}
+	}
+}

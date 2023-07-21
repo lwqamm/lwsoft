@@ -1,0 +1,68 @@
+﻿        // lwsoftpuls.idl: lwsoftpuls 的 IDL 源
+//
+
+// 此文件将由 MIDL 工具处理以
+// 生成类型库(lwsoftpuls.tlb)和封送处理代码。
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(a817e7a2-43fa-11d0-9e44-00aa00b6770a),
+	dual,
+	pointer_default(unique)
+]
+interface IComponentRegistrar : IDispatch
+{
+	[id(1)]	HRESULT Attach([in] BSTR bstrPath);
+	[id(2)]	HRESULT RegisterAll();
+	[id(3)]	HRESULT UnregisterAll();
+	[id(4)]	HRESULT GetComponents([out] SAFEARRAY(BSTR)* pbstrCLSIDs, [out] SAFEARRAY(BSTR)* pbstrDescriptions);
+	[id(5)]	HRESULT RegisterComponent([in] BSTR bstrCLSID);
+	[id(6)] HRESULT UnregisterComponent([in] BSTR bstrCLSID);
+};
+
+[
+	object,
+	uuid(6211ae4d-7fc7-41dd-991e-407b4d48ab95),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface Ilwsoft : IDispatch
+{
+	[id(1), helpstring("Number")] HRESULT Number([in] LONG __num, [out, retval]  LONG* __result);//
+	[id(2), helpstring("BindWindow")] HRESULT BindWindow([in] LONG hwnd);
+	[id(3), helpstring("SetPath")] HRESULT SetPath(BSTR path, LONG* nret);
+	//
+	[id(4), helpstring("FindPic")] HRESULT FindPic(int x_1, int y_1, int w_1, int h_1, BSTR pic_name, BSTR delta_color, double sim, int* intX, int* intY);
+	[id(5), helpstring("FindColor")] HRESULT FindColor(int x1, int y1, int w1, int h1, BSTR color, double sim, int* intX, int* intY);
+	[id(6), helpstring("FindPicEx")] HRESULT FindPicEx(int x_1, int y_1, int w_1, int h_1, BSTR pic_name, BSTR delta_color, double sim);
+};
+
+[
+	uuid(a68fa3bb-d77c-4470-a29e-a9f75d2ff56e),
+	version(1.0),
+	custom(a817e7a1-43fa-11d0-9e44-00aa00b6770a,"{bdfcef43-63a7-4418-84b1-2293c28bca60}")
+]
+library lwsoftpulsLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(bdfcef43-63a7-4418-84b1-2293c28bca60)
+	]
+	coclass CompReg
+	{
+		[default] interface IComponentRegistrar;
+	};
+	[
+		uuid(10548ffc-052c-436e-9757-cb598a7ec687)
+	]
+	coclass lwsoft
+	{
+		[default] interface Ilwsoft;
+	};
+};
+
+import "shobjidl.idl";

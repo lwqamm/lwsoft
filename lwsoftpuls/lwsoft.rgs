@@ -1,0 +1,26 @@
+HKCR
+{
+	lwsoft.1 = s 'lwsoft class'
+	{
+		CLSID = s '{10548ffc-052c-436e-9757-cb598a7ec687}'
+	}
+	lwsoft = s 'lwsoft class'
+	{		
+		CurVer = s 'lwsoft.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {10548ffc-052c-436e-9757-cb598a7ec687} = s 'lwsoft class'
+		{
+			ProgID = s 'lwsoft.1'
+			VersionIndependentProgID = s 'lwsoft'
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			TypeLib = s '{a68fa3bb-d77c-4470-a29e-a9f75d2ff56e}'
+			Version = s '1.0'
+		}
+	}
+}

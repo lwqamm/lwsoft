@@ -1,0 +1,131 @@
+﻿// lwsoft1.idl: lwsoft1 的 IDL 源
+//
+
+// 此文件将由 MIDL 工具处理以
+// 生成类型库(lwsoft1.tlb)和封送处理代码。
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(8c063e60-c117-4f11-9a0d-a025c0f96475),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IlwObject : IDispatch
+{
+	[id(1), helpstring("BindWindow")]                HRESULT   BindWindow(LONG hwnd,  LONG KeyMouse,[out, retval] LONG* nret);
+	[id(2), helpstring("SetWindowState")]            HRESULT   SetWindowState(long hwnd, long flag, [out, retval] LONG* nret);
+	[id(3), helpstring("SetWindowTransparent")]      HRESULT   SetWindowTransparent(long hwnd, long trans, [out, retval] LONG* nret);
+	[id(4), helpstring("SetWindowText")]             HRESULT   SetWindowText(long hwnd, BSTR title, [out, retval]LONG* nret);
+	[id(5), helpstring("SetWindowSize")]             HRESULT   SetWindowSize(long hwnd, long width, long hight, [out, retval] LONG* nret);
+	[id(6), helpstring("SetClientSize")]             HRESULT   SetClientSize(long hwnd, long width, long height, [out, retval] LONG* nret);
+	[id(7), helpstring("MoveWindow")]                HRESULT   MoveWindow(LONG hwnd, LONG x, LONG y, [out, retval] LONG* nret);
+	[id(8), helpstring("ScreenToClient")]            HRESULT   ScreenToClient(LONG hwnd, LONG* x, LONG* y, [out, retval] LONG* nret);
+	[id(9), helpstring("SendPaste")]                 HRESULT   SendPaste(LONG hwnd, [out, retval] LONG* nret);
+	[id(10), helpstring("GetClipboard")]             HRESULT   GetClipboard([out, retval]BSTR* nret);
+	[id(11), helpstring("SetClipboard")]             HRESULT   SetClipboard(BSTR values, [out, retval]LONG* nret);
+	[id(12), helpstring("SendString")]               HRESULT   SendString(long hwnd, BSTR str, [out, retval] LONG* nret);
+	[id(13), helpstring("SendString2")]              HRESULT   SendString2(LONG hwnd, BSTR str, [out, retval] LONG* nret);
+	[id(14), helpstring("GetWindowTitle")]           HRESULT   GetWindowTitle(LONG hwnd, [out, retval] BSTR* nret);
+	[id(15), helpstring("GetWindowThreadProcessId")] HRESULT   GetWindowThreadProcessId(long hWnd, [out, retval] LONG* nret);
+	[id(16), helpstring("GetWindowProcessId")]       HRESULT   GetWindowProcessId(long hwnd, [out, retval] LONG* nret);
+	[id(17), helpstring("GetWindowProcessPath")]     HRESULT   GetWindowProcessPath(LONG hwnd, [out, retval] BSTR* nret);
+	[id(18), helpstring("GetWindowRect")]            HRESULT   GetWindowRect(long hwnd, LONG* x1, LONG* y1, LONG* x2, LONG* y2, [out, retval] LONG* nret);
+	[id(19), helpstring("GetWindowClass")]           HRESULT   GetWindowClass(long hwnd, [out, retval] BSTR* nret);
+	[id(20), helpstring("GetWindowState")]           HRESULT   GetWindowState(LONG hwnd, LONG flag, [out, retval] LONG* nret);
+	[id(21), helpstring("GetSpecialWindow")]         HRESULT   GetSpecialWindow(LONG flag, [out, retval] LONG* nret);
+	[id(22), helpstring("GetWindow")]                HRESULT   GetWindow(long hwnd, long flag, [out, retval] LONG* nret);
+	[id(23), helpstring("GetMousePointWindow")]      HRESULT   GetMousePointWindow([out, retval]LONG* nret);
+	[id(24), helpstring("GetPointWindow")]           HRESULT   GetPointWindow(long x, long y, [out, retval] LONG* nret);
+	[id(25), helpstring("GetForegroundWindow")]      HRESULT   GetForegroundWindow([out, retval] LONG* nret);
+	[id(26), helpstring("GetForegroundFocus")]       HRESULT   GetForegroundFocus([out, retval]LONG* nret);
+	[id(27), helpstring("GetClientSize")]            HRESULT   GetClientSize(long hwnd, LONG* w, LONG* h, [out, retval] LONG* nret);
+	[id(28), helpstring("GetClientRect")]            HRESULT   GetClientRect(LONG hwnd, LONG* x1, LONG* y1, LONG* x2, LONG* y2, [out, retval] LONG* nret);
+	[id(29), helpstring("FindWindowEx")]             HRESULT   FindWindowEx(LONG parent, BSTR class_name, BSTR title, [out, retval] LONG* nret);
+	[id(30), helpstring("FindWindow")]               HRESULT   FindWindow(BSTR class_name, BSTR title, [out, retval] LONG* nret);
+	[id(31), helpstring("EnumWindowByProcess")]      HRESULT   EnumWindowByProcess(BSTR process_name, BSTR title, BSTR class_name, LONG filter, [out, retval] BSTR* nret);
+	[id(32), helpstring("EnumWindowByProcessId")]    HRESULT   EnumWindowByProcessId(long pid, BSTR title, BSTR class_name, LONG filter, [out, retval] BSTR* nret);
+	[id(33), helpstring("EnumProcess")]              HRESULT   EnumProcess(BSTR name, [out, retval]	BSTR* nret);
+	[id(34), helpstring("EnumWindow")]               HRESULT   EnumWindow(LONG parent, BSTR title, BSTR class_name, LONG filter, [out, retval] BSTR* nret);
+	[id(35), helpstring("SetPath")]                  HRESULT   SetPath(BSTR path, [out, retval]LONG* nret);
+	[id(36), helpstring("FindColor")]                HRESULT   FindColor(LONG x1, LONG y1, LONG w1, LONG h1, BSTR color, double sim, LONG* longX, LONG* longY, [out, retval] LONG* nret);
+	[id(37), helpstring("Ver")]                      HRESULT   Ver([out, retval]BSTR* nret);
+	[id(38), helpstring("GetColor")]                 HRESULT   GetColor(long x, long y, [out, retval] BSTR* nret);
+	[id(39), helpstring("GetColorNum")]              HRESULT   GetColorNum(long x_1, long y_1, long w_1, long h_1, BSTR color, double sim, [out, retval] LONG* nret);
+	[id(40), helpstring("CmpColor")]                 HRESULT   CmpColor(long x, long y, BSTR color, double sim, [out, retval] LONG* nret);
+	[id(41), helpstring("Capture")]                  HRESULT   Capture(long x, long y, long w, long h, BSTR file, [out, retval] LONG* nret);
+	[id(42), helpstring("FindColorBlock")]           HRESULT   FindColorBlock(long x_1, long y_1, long w_1, long h_1, BSTR color, double sim, long count, long width, long height, LONG* intX, LONG* intY, [out, retval] LONG* nret);
+	[id(43), helpstring("FindPic")]                  HRESULT   FindPic(LONG x_1, LONG y_1, LONG w_1, LONG  h_1, BSTR pic_name, BSTR delta_color, double sim, LONG* longX, LONG* longY, [out, retval] LONG* nret);
+	[id(44), helpstring("FindPicEx")]                HRESULT   FindPicEx(LONG x_1, LONG y_1, LONG w_1, LONG h_1, BSTR pic_name, BSTR delta_color, double sim, [out, retval] BSTR* nret);
+	[id(45), helpstring("Bmp32To24")]                HRESULT   Bmp32To24(BSTR Filepath, BSTR FilepathBak, LONG ret, [out, retval] LONG* nret);
+	[id(46), helpstring("IsDisplayDead")]            HRESULT   IsDisplayDead(long x, long y, long w, long h, long t, [out, retval] LONG* nret);
+	//系统功能篇
+	[id(47), helpstring("CheckFontSmooth")]          HRESULT   CheckFontSmooth([out, retval]LONG* nret);
+	[id(48), helpstring("DisableFontSmooth")]        HRESULT   DisableFontSmooth([out, retval]LONG* nret);
+	[id(49), helpstring("EnableFontSmooth")]         HRESULT   EnableFontSmooth([out, retval]LONG* nret);
+	[id(50), helpstring("CheckUAC")]                 HRESULT   CheckUAC([out, retval]LONG* nret);
+	[id(51), helpstring("SetUAC")]                   HRESULT   SetUAC(ULONG enable, [out, retval] LONG* nret);
+	[id(52), helpstring("Delay")]                    HRESULT   Delay(long mis, [out, retval] LONG* nret);
+	[id(53), helpstring("Delays")]                   HRESULT   Delays(long mis_min, long  mis_max, [out, retval] LONG* nret);
+	[id(54), helpstring("ExitOs")]                   HRESULT   ExitOs(long type, [out, retval] LONG* nret);
+	[id(55), helpstring("DisableScreenSave")]        HRESULT   DisableScreenSave([out, retval]LONG* nret);
+	[id(56), helpstring("DisablePowerSave")]         HRESULT   DisablePowerSave([out, retval]LONG* nret);
+	[id(57), helpstring("EnablePowerSaveh")]         HRESULT   EnablePowerSaveh([out, retval]LONG* nret);
+	[id(58), helpstring("DisableCloseDisplayAndSleep")]HRESULT DisableCloseDisplayAndSleep([out, retval]LONG* nret);
+	[id(59), helpstring("GetDir")]                   HRESULT   GetDir(long type, [out, retval] BSTR* nret);
+	[id(60), helpstring("GetCpuType")]               HRESULT   GetCpuType([out, retval]LONG* nret);
+	[id(61), helpstring("GetCpuUsage")]              HRESULT   GetCpuUsage([out, retval]LONG* nret);
+	[id(62), helpstring("GetDiskSerial")]            HRESULT   GetDiskSerial(long index, [out, retval] BSTR* nret);
+	[id(63), helpstring("GetDisplayInfo")]           HRESULT  GetDisplayInfo(BSTR* nret);
+	[id(64), helpstring("GetDPI")]                   HRESULT  GetDPI([out, retval]LONG* nret);
+	[id(65), helpstring("RunApp")]                   HRESULT  RunApp(BSTR path, long type, [out, retval] LONG* nret);
+	[id(66), helpstring("GetHDiskCode")]             HRESULT  GetHDiskCode([out, retval] LONG* nret);
+	[id(67), helpstring("GetCpuCode")]               HRESULT  GetCpuCode([out, retval]BSTR* nret);
+	[id(68), helpstring("GetMainBoardInfoByCmd")]    HRESULT  GetMainBoardInfoByCmd([out, retval]LONG* nret);
+	[id(69), helpstring("GetMachineCode")]           HRESULT  GetMachineCode([out, retval]BSTR* nret);
+	[id(70), helpstring("GetMachineCodeNoMac")]      HRESULT  GetMachineCodeNoMac([out, retval]BSTR* nret);
+	[id(71), helpstring("GetNetTime")]               HRESULT  GetNetTime([out, retval]BSTR* nret);
+	[id(72), helpstring("GetNetTimeByIp")]           HRESULT  GetNetTimeByIp(BSTR ip, [out, retval] BSTR* nret);
+	[id(73), helpstring("GetOsBuildNumber")]         HRESULT  GetOsBuildNumber([out, retval]LONG* nret);
+	[id(74), helpstring("GetOsType")]                HRESULT  GetOsType([out, retval]LONG* nret);
+	[id(75), helpstring("GetTime")]                  HRESULT  GetTime([out, retval]LONG* nret);
+	[id(76), helpstring("Is64Bit")]                  HRESULT  Is64Bit([out, retval]LONG* nret);
+	[id(77), helpstring("IsSurrpotVt")]              HRESULT  IsSurrpotVt([out, retval]LONG* nret);
+	[id(78), helpstring("GetScreenDepth")]           HRESULT  GetScreenDepth([out, retval]LONG* nret);
+	[id(79), helpstring("SetScreenDepth")]           HRESULT  SetScreenDepth(long dmBitsPerPel, [out, retval] LONG* nret);
+	[id(80), helpstring("GetScreenHeight")]          HRESULT  GetScreenHeight([out, retval]LONG* nret);
+	[id(81), helpstring("GetScreenWidth")]           HRESULT  GetScreenWidth([out, retval]LONG* nret);
+	[id(82), helpstring("SetScreen")]                HRESULT  SetScreen(long width, long height, [out, retval] LONG* nret);
+	[id(83), helpstring("GetLastError")]             HRESULT  GetLastError([out, retval]LONG* nret);
+	//文字识别功能篇
+	[id(84), helpstring("SetDict")]                  HRESULT  SetDict(BSTR file, [out, retval] LONG* nret);
+	[id(85), helpstring("FindStr")]                  HRESULT  FindStr(long x1, long y1, long w, long h, BSTR str1, BSTR color_format1, double sim, LONG* intX, LONG* intY, [out, retval] LONG* nret);
+	[id(86), helpstring("FindStrEx")]                HRESULT  FindStrEx(long x1, long y1, long w, long h, BSTR str, BSTR color_format, double sim, [out, retval] BSTR* nret);
+	[id(87), helpstring("Ocr")]                      HRESULT  Ocr(long x_1, long y_1, long w_1, long h_1, BSTR color_format, double  sim, [out, retval] BSTR* nret);
+	[id(88), helpstring("MoveTo")]                   HRESULT  MoveTo(long x, long y, [out, retval] LONG* nret);
+	[id(89), helpstring("LeftClick")]                HRESULT  LeftClick([out, retval] LONG* nret);
+	[id(90), helpstring("UnBindWindow")]             HRESULT  UnBindWindow([out, retval]LONG* nret);
+	
+
+
+};
+[
+	uuid(25b4ca0e-260f-4fe8-bf12-b09b4952b5e2),
+	version(1.0005),
+]
+library lwsoft1Lib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(fc598ba8-6f6a-464e-b1db-06d60265f708)
+	]
+	coclass lwObject
+	{
+		[default] interface IlwObject;
+	};
+};
+
+import "shobjidl.idl";
